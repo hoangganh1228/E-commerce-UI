@@ -1,55 +1,109 @@
 import React from 'react';
+import Hero from '../../components/client/Hero';
 import TestimonialSlider from '../../components/client/TestimonialSlider';
 
 function Blog() {
+  // Dữ liệu blog posts mẫu
+  const blogPosts = [
+    {
+      id: 1,
+      image: '/images/post-1.jpg',
+      title: 'First Time Home Owner Ideas',
+      author: 'Kristin Watson',
+      date: 'Dec 19, 2021',
+      excerpt: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.'
+    },
+    {
+      id: 2,
+      image: '/images/post-2.jpg',
+      title: 'How To Keep Your Furniture Clean',
+      author: 'Robert Fox',
+      date: 'Dec 15, 2021',
+      excerpt: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.'
+    },
+    {
+      id: 3,
+      image: '/images/post-3.jpg',
+      title: 'Small Space Furniture Apartment Ideas',
+      author: 'Kristin Watson',
+      date: 'Dec 12, 2021',
+      excerpt: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.'
+    },
+    {
+      id: 4,
+      image: '/images/post-1.jpg',
+      title: 'Interior Design Tips',
+      author: 'Jenny Wilson',
+      date: 'Dec 10, 2021',
+      excerpt: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.'
+    },
+    {
+      id: 5,
+      image: '/images/post-2.jpg',
+      title: 'Modern Furniture Trends',
+      author: 'Robert Fox',
+      date: 'Dec 8, 2021',
+      excerpt: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.'
+    },
+    {
+      id: 6,
+      image: '/images/post-3.jpg',
+      title: 'Sustainable Living Ideas',
+      author: 'Kristin Watson',
+      date: 'Dec 5, 2021',
+      excerpt: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.'
+    },
+    {
+      id: 7,
+      image: '/images/post-1.jpg',
+      title: 'Home Decoration Guide',
+      author: 'Jenny Wilson',
+      date: 'Dec 3, 2021',
+      excerpt: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.'
+    },
+    {
+      id: 8,
+      image: '/images/post-2.jpg',
+      title: 'Minimalist Design Concepts',
+      author: 'Robert Fox',
+      date: 'Dec 1, 2021',
+      excerpt: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.'
+    }
+  ];
+
   return (
-    <>
+    <div className="blog-page">
       {/* Hero Section */}
-      <div className="hero">
-        <div className="container">
-          <div className="row justify-content-between">
-            <div className="col-lg-5">
-              <div className="intro-excerpt">
-                <h1>Blog</h1>
-                <p className="mb-4">
-                  Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit.
-                  Aliquam vulputate velit imperdiet dolor tempor tristique.
-                </p>
-                <p>
-                  <a href="#" className="btn btn-secondary me-2">Shop Now</a>
-                  <a href="#" className="btn btn-white-outline">Explore</a>
-                </p>
-              </div>
-            </div>
-            <div className="col-lg-7">
-              <div className="hero-img-wrap">
-                <img src="/images/couch.png" alt="couch" className="img-fluid" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Hero 
+        title="Blog"
+        description="Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique."
+        showButtons={true}
+        showImage={true}
+      />
 
       {/* Blog Section */}
       <div className="blog-section">
         <div className="container">
           <div className="row">
-            {Array.from({ length: 8 }).map((_, index) => (
-              <div key={index} className="col-12 col-sm-6 col-md-4 mb-5">
+            {blogPosts.map((post) => (
+              <div key={post.id} className="col-12 col-sm-6 col-md-4 mb-5">
                 <div className="post-entry">
                   <a href="#" className="post-thumbnail">
                     <img
-                      src={`/images/post-${(index % 3) + 1}.jpg`}
-                      alt="Post"
+                      src={post.image}
+                      alt={post.title}
                       className="img-fluid"
                     />
                   </a>
                   <div className="post-content-entry">
-                    <h3><a href="#">Post Title Example</a></h3>
+                    <h3><a href="#">{post.title}</a></h3>
                     <div className="meta">
-                      <span>by <a href="#">Author Name</a></span>{' '}
-                      <span>on <a href="#">Dec {12 + index}, 2021</a></span>
+                      <span>by <a href="#">{post.author}</a></span>{' '}
+                      <span>on <a href="#">{post.date}</a></span>
                     </div>
+                    {post.excerpt && (
+                      <p className="post-excerpt">{post.excerpt}</p>
+                    )}
                   </div>
                 </div>
               </div>
@@ -59,8 +113,17 @@ function Blog() {
       </div>
 
       {/* Testimonials with Swiper */}
-      <TestimonialSlider />
-    </>
+      <TestimonialSlider 
+        title="What Our Readers Say"
+        backgroundColor="#eff2f1"
+        accentColor="#3b5d50"
+        autoplay={true}
+        autoplayDelay={6000}
+        showNavigation={true}
+        showPagination={true}
+        className="before-footer-section"
+      />
+    </div>
   );
 }
 

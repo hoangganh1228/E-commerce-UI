@@ -1,4 +1,5 @@
 import React from 'react';
+import Hero from '../../components/client/Hero';
 
 const Shop = () => {
   // Dữ liệu sản phẩm mẫu
@@ -59,22 +60,14 @@ const Shop = () => {
   };
 
   return (
-    <>
+    <div className="shop-page">
       {/* Hero Section */}
-      <div className="hero">
-        <div className="container">
-          <div className="row justify-content-between">
-            <div className="col-lg-5">
-              <div className="intro-excerpt">
-                <h1>Shop</h1>
-              </div>
-            </div>
-            <div className="col-lg-7">
-              {/* Có thể thêm nội dung khác ở đây */}
-            </div>
-          </div>
-        </div>
-      </div>
+      <Hero 
+        title="Shop"
+        description="Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique."
+        showButtons={true}
+        showImage={true}
+      />
 
       {/* Product Section */}
       <div className="untree_co-section product-section before-footer-section">
@@ -106,7 +99,7 @@ const Shop = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

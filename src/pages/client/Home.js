@@ -1,53 +1,18 @@
 // src/pages/client/Home.js
-import React, { useState } from 'react';
+import Hero from '../../components/client/Hero';
+import TestimonialSlider from '../../components/client/TestimonialSlider';
+ // Adjust path as needed
 
 const Home = () => {
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
-
-  const testimonials = [
-    {
-      content: "Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.",
-      author: "Maria Jones",
-      position: "CEO, Co-Founder, XYZ Inc.",
-      image: "/images/person-1.png"
-    },
-    {
-      content: "Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.",
-      author: "John Smith", 
-      position: "Marketing Director, ABC Corp.",
-      image: "/images/person-1.png"
-    }
-  ];
-
-  const nextTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-
   return (
     <div className="home-page">
       {/* Hero Section */}
-      <div className="hero">
-        <div className="container">
-          <div className="row justify-content-between">
-            <div className="col-lg-5">
-              <div className="intro-excerpt">
-                <h1>Modern Interior <span className="d-block">Design Studio</span></h1>
-                <p className="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
-                <p><a href="" className="btn btn-secondary me-2">Shop Now</a><a href="#" className="btn btn-white-outline">Explore</a></p>
-              </div>
-            </div>
-            <div className="col-lg-7">
-              <div className="hero-img-wrap">
-                <img src="/images/couch.png" className="img-fluid" alt="Couch" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Hero 
+        title="Contact"
+        description="Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique."
+        showButtons={true}
+        showImage={true}
+      />
 
       {/* Product Section */}
       <div className="product-section">
@@ -228,53 +193,16 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Testimonial Section */}
-      <div className="testimonial-section">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-7 mx-auto text-center">
-              <h2 className="section-title">Testimonials</h2>
-            </div>
-          </div>
-
-          <div className="row justify-content-center">
-            <div className="col-lg-12">
-              <div className="testimonial-slider-wrap text-center">
-                <div id="testimonial-nav">
-                  <span className="prev" onClick={prevTestimonial}>
-                    <span className="fa fa-chevron-left"></span>
-                  </span>
-                  <span className="next" onClick={nextTestimonial}>
-                    <span className="fa fa-chevron-right"></span>
-                  </span>
-                </div>
-
-                <div className="testimonial-slider">
-                  <div className="item">
-                    <div className="row justify-content-center">
-                      <div className="col-lg-8 mx-auto">
-                        <div className="testimonial-block text-center">
-                          <blockquote className="mb-5">
-                            <p>&ldquo;{testimonials[currentTestimonial].content}&rdquo;</p>
-                          </blockquote>
-
-                          <div className="author-info">
-                            <div className="author-pic">
-                              <img src={testimonials[currentTestimonial].image} alt={testimonials[currentTestimonial].author} className="img-fluid" />
-                            </div>
-                            <h3 className="font-weight-bold">{testimonials[currentTestimonial].author}</h3>
-                            <span className="position d-block mb-3">{testimonials[currentTestimonial].position}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* New Testimonial Section */}
+      <TestimonialSlider 
+        title="What Our Customers Say"
+        backgroundColor="#eff2f1"
+        accentColor="#3b5d50"
+        autoplay={true}
+        autoplayDelay={5000}
+        showNavigation={true}
+        showPagination={true}
+      />
 
       {/* Blog Section */}
       <div className="blog-section">
@@ -317,7 +245,7 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
+            <div className="col-12 col-md-6 col-lg-4 mb-4 mb-md-0">
               <div className="post-entry">
                 <a href="#" className="post-thumbnail">
                   <img src="/images/post-3.jpg" alt="Blog Post" className="img-fluid" />

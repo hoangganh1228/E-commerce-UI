@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
+import TestimonialSlider from '../../components/client/TestimonialSlider';
+import Hero from '../../components/client/Hero';
+ // Adjust path as needed
 
 const About = () => {
-  // State cho testimonial slider
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
   // Dữ liệu team members
   const teamMembers = [
     {
@@ -37,72 +38,17 @@ const About = () => {
       position: 'CEO, Founder, Atty.',
       description: 'Separated they live in. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.'
     }
-  ]
-  // Hàm xử lý chuyển slide
-  const nextTestimonial = () => {
-    setCurrentTestimonial((prev) => 
-      prev === testimonials.length - 1 ? 0 : prev + 1
-    );
-  };
-
-  const prevTestimonial = () => {
-    setCurrentTestimonial((prev) => 
-      prev === 0 ? testimonials.length - 1 : prev - 1
-    );
-  };
-
-  // Dữ liệu testimonials
-  const testimonials = [
-    {
-      id: 1,
-      content: "Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.",
-      author: "Maria Jones",
-      position: "CEO, Co-Founder, XYZ Inc.",
-      image: "images/person-1.png"
-    },
-    {
-      id: 2,
-      content: "Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.",
-      author: "Maria Jones",
-      position: "CEO, Co-Founder, XYZ Inc.",
-      image: "images/person-1.png"
-    },
-    {
-      id: 3,
-      content: "Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.",
-      author: "Maria Jones",
-      position: "CEO, Co-Founder, XYZ Inc.",
-      image: "images/person-1.png"
-    }
   ];
 
   return (
     <>
       {/* Hero Section */}
-      <div className="hero">
-        <div className="container">
-          <div className="row justify-content-between">
-            <div className="col-lg-5">
-              <div className="intro-excerpt">
-                <h1>About Us</h1>
-                <p className="mb-4">
-                  Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. 
-                  Aliquam vulputate velit imperdiet dolor tempor tristique.
-                </p>
-                <p>
-                  <a href="" className="btn btn-secondary me-2">Shop Now</a>
-                  <a href="#" className="btn btn-white-outline">Explore</a>
-                </p>
-              </div>
-            </div>
-            <div className="col-lg-7">
-              <div className="hero-img-wrap">
-                <img src="images/couch.png" className="img-fluid" alt="Couch" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Hero 
+        title="About"
+        description="Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique."
+        showButtons={true}
+        showImage={true}
+      />
 
       {/* Why Choose Us Section */}
       <div className="why-choose-section">
@@ -119,7 +65,7 @@ const About = () => {
                 <div className="col-6 col-md-6">
                   <div className="feature">
                     <div className="icon">
-                      <img src="images/truck.svg" alt="Fast Shipping" className="imf-fluid" />
+                      <img src="images/truck.svg" alt="Fast Shipping" className="img-fluid" />
                     </div>
                     <h3>Fast &amp; Free Shipping</h3>
                     <p>
@@ -132,7 +78,7 @@ const About = () => {
                 <div className="col-6 col-md-6">
                   <div className="feature">
                     <div className="icon">
-                      <img src="images/bag.svg" alt="Easy Shopping" className="imf-fluid" />
+                      <img src="images/bag.svg" alt="Easy Shopping" className="img-fluid" />
                     </div>
                     <h3>Easy to Shop</h3>
                     <p>
@@ -145,7 +91,7 @@ const About = () => {
                 <div className="col-6 col-md-6">
                   <div className="feature">
                     <div className="icon">
-                      <img src="images/support.svg" alt="24/7 Support" className="imf-fluid" />
+                      <img src="images/support.svg" alt="24/7 Support" className="img-fluid" />
                     </div>
                     <h3>24/7 Support</h3>
                     <p>
@@ -158,7 +104,7 @@ const About = () => {
                 <div className="col-6 col-md-6">
                   <div className="feature">
                     <div className="icon">
-                      <img src="images/return.svg" alt="Easy Returns" className="imf-fluid" />
+                      <img src="images/return.svg" alt="Easy Returns" className="img-fluid" />
                     </div>
                     <h3>Hassle Free Returns</h3>
                     <p>
@@ -210,65 +156,17 @@ const About = () => {
         </div>
       </div>
 
-      {/* Testimonial Section */}
-      <div className="testimonial-section before-footer-section">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-7 mx-auto text-center">
-              <h2 className="section-title">Testimonials</h2>
-            </div>
-          </div>
-
-          <div className="row justify-content-center">
-            <div className="col-lg-12">
-              <div className="testimonial-slider-wrap text-center">
-                <div id="testimonial-nav">
-                  <span 
-                    className="prev" 
-                    onClick={prevTestimonial}
-                    style={{ cursor: 'pointer' }}
-                  >
-                    <span className="fa fa-chevron-left"></span>
-                  </span>
-                  <span 
-                    className="next" 
-                    onClick={nextTestimonial}
-                    style={{ cursor: 'pointer' }}
-                  >
-                    <span className="fa fa-chevron-right"></span>
-                  </span>
-                </div>
-
-                <div className="testimonial-slider">
-                  <div className="item">
-                    <div className="row justify-content-center">
-                      <div className="col-lg-8 mx-auto">
-                        <div className="testimonial-block text-center">
-                          <blockquote className="mb-5">
-                            <p>&ldquo;{testimonials[currentTestimonial].content}&rdquo;</p>
-                          </blockquote>
-
-                          <div className="author-info">
-                            <div className="author-pic">
-                              <img 
-                                src={testimonials[currentTestimonial].image} 
-                                alt={testimonials[currentTestimonial].author} 
-                                className="img-fluid" 
-                              />
-                            </div>
-                            <h3 className="font-weight-bold">{testimonials[currentTestimonial].author}</h3>
-                            <span className="position d-block mb-3">{testimonials[currentTestimonial].position}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* New Testimonial Section */}
+      <TestimonialSlider 
+        title="What Our Clients Say"
+        backgroundColor="#eff2f1"
+        accentColor="#3b5d50"
+        autoplay={true}
+        autoplayDelay={6000}
+        showNavigation={true}
+        showPagination={true}
+        className="before-footer-section"
+      />
     </>
   );
 };

@@ -1,6 +1,8 @@
-import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
+  const param = useLocation();
+  const currentPath = param.pathname;
   return (
     <nav className="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="Furni navigation bar">
       <div className="container">
@@ -12,19 +14,25 @@ const Header = () => {
 
         <div className="collapse navbar-collapse" id="navbarsFurni">
           <ul className="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-            <li className="nav-item active">
-              <a className="nav-link" href="/">Home</a>
+            <li className={`nav-item ${currentPath === '/' ? 'active' : ''}`}>
+              <Link className="nav-link" to="/">Home</Link>
             </li>
-            <li><a className="nav-link" href="/shop">Shop</a></li>
-            <li><a className="nav-link" href="/about">About us</a></li>
-            <li><a className="nav-link" href="services.html">Services</a></li>
-            <li><a className="nav-link" href="/blog">Blog</a></li>
-            <li><a className="nav-link" href="contact.html">Contact us</a></li>
+            <li className={`nav-item ${currentPath === '/shop' ? 'active' : ''}`}>
+              <Link className="nav-link" to="/shop">Shop</Link>
+            </li>
+            <li className={`nav-item ${currentPath === '/about' ? 'active' : ''}`}>
+              <Link className="nav-link" to="/about">About us</Link>
+            </li>
+            <li className={`nav-item ${currentPath === '/services' ? 'active' : ''}`}>
+              <Link className="nav-link" to="/services">Services</Link>
+            </li>
+            <li><Link className="nav-link" to="/blog">Blog</Link></li>
+            <li><Link className="nav-link" to="/contact">Contact us</Link></li>
           </ul>
 
           <ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-            <li><a className="nav-link" href="#"><img src="/images/user.svg" alt="User" /></a></li>
-            <li><a className="nav-link" href="cart.html"><img src="/images/cart.svg" alt="Cart" /></a></li>
+            <li><Link className="nav-link" to="#"><img src="/images/user.svg" alt="User" /></Link></li>
+            <li><Link className="nav-link" to="/cart"><img src="/images/cart.svg" alt="Cart" /></Link></li>
           </ul>
         </div>
       </div>
